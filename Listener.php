@@ -6,18 +6,12 @@
    */
   class Listener
   {
-
-    function __construct() {
-      //
-    }
-
-    // fungsi untuk membuat url
+    // create url
     function requestUrl($method) {
       global $db;
       return API_URL . $method;
     }
 
-    // fungsi untuk meminta pesan
     function getUpdates($offset) {
       $url = $this->requestUrl("getUpdates")."?offset=".$offset;
       $resp = file_get_contents($url);
