@@ -1,6 +1,6 @@
 <!-- Read incoming telegram chat  -->
 <?php
-  require_once('Config.php');
+  require_once('config.php');
   /**
    *
    */
