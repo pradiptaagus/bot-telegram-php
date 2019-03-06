@@ -63,32 +63,32 @@
 		}
 
 		// fungsi untuk membuat url
-    function requestUrl($method) {
-      global $db;
-      return API_URL . $method;
-    }
+	    function requestUrl($method) {
+	      global $db;
+	      return API_URL . $method;
+	    }
 
 		// fungsi untuk mengirimkan pesan
 		function sendReplyMsg($chatId, $msgId, $text) {
-      $data = array(
-        'chat_id' => $chatId,
-        'text' => $text,
-				'reply_to_message_id' => $msgId,
-				'parse_mode' => 'html'
-      );
+	      $data = array(
+	        'chat_id' => $chatId,
+	        'text' => $text,
+					'reply_to_message_id' => $msgId,
+					'parse_mode' => 'html'
+	  	);
 
-      $options = array(
-        'http' => array(
-          'header' => "Content-type: application/x-www-form-urlencodedrn",
-          'method' => "POST",
-          'content' => http_build_query($data),
-        ),
-      );
-      $context = stream_context_create($options);
-      $result = file_get_contents($this->requestUrl("sendMessage"), false, $context);
-		}
-		
-		function sendReplyFile($chatId, $msgId, $document) {
+	  	$options = array(
+	        'http' => array(
+	          	'header' => "Content-type: application/x-www-form-urlencodedrn",
+		          'method' => "POST",
+		          'content' => http_build_query($data),
+		        ),
+	      	);
+	      	$context = stream_context_create($options);
+	  		$result = file_get_contents($this->requestUrl("sendMessage"), false, $context);
+			}
+			
+		function sendReplyFile($chatId, $msgId, $document){
 			$post = array(
 				'chat_id' => $chatId,
 				'reply_to_message_id' => $msgId,
@@ -103,6 +103,6 @@
 			curl_close ($ch); 
 
 			print_r($ch);
-    }
+    	}
 	}
 ?>
